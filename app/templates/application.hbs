@@ -1,5 +1,24 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div contenteditable="true" id="editableddiv" oninput={{action "divContentChanged"}}></div>
+<button onclick={{action 'bold'}}>BOLD</button>
+<button onclick={{action 'underline'}}>UNDERLINE</button>
+<button onclick={{action 'italic'}}>ITALIC</button>
+<button onclick={{action 'strike'}}>STRIKE THROUGH</button>
+<br>
+<button onclick={{action 'left'}}>LEFT</button>
+<button onclick={{action 'center'}}>CENTER</button>
+<button onclick={{action 'right'}}>RIGHT</button>
+<button onclick={{action 'justify'}}>JUSTIFY</button>
+<br>
+<button onclick={{action 'hyperlink'}}>HyperLink</button>
+<br>
+<select onchange={{action 'fontSize'}}>
+	
+	{{#each fontSizes as |font|}}
+		{{#if (eq font selectedFont)}}
 
-{{outlet}}
+		<option value={{font}} selected="true">{{font}}</option>
+		{{else}}
+		<option value={{font}}>{{font}}</option>
+		{{/if}}
+	{{/each}}
+</select>
